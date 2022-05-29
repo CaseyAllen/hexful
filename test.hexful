@@ -1,0 +1,5 @@
+@declare name /John Doe/
+
+@repeat 2
+    /Hello / {name} /! / 
+@end
