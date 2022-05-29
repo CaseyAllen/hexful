@@ -1,7 +1,10 @@
 
 import os
 import sys
+import util.clargparser as clargs
 from typing import List
+
+ARGS = clargs.getArgs()
 
 DIRECTIVES = [
     "include",
@@ -244,14 +247,17 @@ def getLines(filepath: str) -> bytearray:
     return fileLines
 
 
-target = getAbsPath(sys.argv[1])
+target = getAbsPath(ARGS["argList"][0])
 
 _bytes = convBytes(getLines(target))
 
 # write the bytes to the output file
 
 defaultOutPath = "./out.hex"
-
+try:
+    defaultOutPath = ARGS["out"]
+except KeyError:
+    pass
 
 outAbsPath = getAbsPath(defaultOutPath)
 

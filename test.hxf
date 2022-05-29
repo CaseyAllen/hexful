@@ -1,4 +1,4 @@
-@declare name /John Doe/
+@declare name /Jane Doe/
 
 @repeat 2
     /Hello / {name} /! / 
